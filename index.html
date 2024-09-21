@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+    let advice = ["You should get a job!","You will die", "Don't Worry", "Be cool", "You should not", "I don't think so", "Probably", "Maybe"];
+    let randomAdvice = '';
+    function updateView(){
+    let html = /*HTML*/`
+    <div class="resultAnswer">${randomAdvice}</div>
+    <input class="inputField" placeholder="Fire away your questions!">
+    <button onclick="submitQuestion()">Submit question</button>
+    
+    `
+    document.getElementById("app").innerHTML = html;
+    }
+
+    function submitQuestion(){
+        let randomIndex = Math.floor(Math.random()* advice.length);
+        randomAdvice = advice[randomIndex];
+        // console.log(randomAdvice);
+        document.getElementsByClassName('resultAnswer').innerHTML = randomAdvice;
+        updateView();
+    }
+
+    updateView();
+
+    </script>
+</body>
+</html>
